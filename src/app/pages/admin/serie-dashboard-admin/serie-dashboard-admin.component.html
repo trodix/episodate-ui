@@ -1,0 +1,8 @@
+<h2>Dashboard</h2>
+<h3>{{serie?.name}}</h3>
+<ul *ngIf="serie?.linkPatterns?.length! > 0 ;else no_links">
+  <li *ngFor="let link of serie?.linkPatterns">{{link.urlPattern}}</li>
+</ul>
+<ng-template #no_links>
+  <p>No link patterns for this item</p>
+</ng-template>

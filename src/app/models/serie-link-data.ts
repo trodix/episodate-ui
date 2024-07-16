@@ -1,4 +1,4 @@
 export interface SerieLinkData {
   serieName: string;
-  url: string;
+  urls: string[];
 }

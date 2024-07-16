@@ -1,0 +1,30 @@
+.app-header-wrapper {
+  background-color: #e74c3c;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  flex-direction: row;
+
+  div {
+    padding: 0 8px;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: white;
+      &:hover {
+        color: #efefef;
+      }
+    }
+    &.left {
+      justify-content: start;
+    }
+    &.right {
+      justify-content: end;
+    }
+  }
+}

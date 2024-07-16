@@ -13,7 +13,7 @@ import {SerieLinkData} from "../../models/serie-link-data";
 export class SeriesComponent implements OnInit {
 
   series$: Observable<Serie[]> = new Observable<Serie[]>();
-  serieLinkData$: Observable<SerieLinkData[]> = new Observable<SerieLinkData[]>();
+  serieLinkData$: Observable<SerieLinkData> = new Observable<SerieLinkData>();
 
   searchForm: FormGroup = new FormGroup({
     serieName: new FormControl('', [Validators.required]),
@@ -30,11 +30,6 @@ export class SeriesComponent implements OnInit {
   }
 
   onSubmit() {
-
-    console.log("serieName: ", this.searchForm.get("serieName")?.value);
-    console.log("season: ", this.searchForm.get("season")?.value);
-    console.log("episode: ", this.searchForm.get("episode")?.value);
-
     this.serieLinkData$ = this.seriesServices.findEpisodeLinks(
       this.searchForm.get("serieName")?.value,
       this.searchForm.get("season")?.value,

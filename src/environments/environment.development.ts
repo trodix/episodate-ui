@@ -1,5 +1,5 @@
 export const environment = {
-  BACKEND_BASE_URL: 'http://trodix.local:4080/api/v2',
+  BACKEND_BASE_URL: 'http://trodix.local:4080/api/v1',
   keycloak: {
     // Url of the Identity Provider
     issuer: 'http://trodix.local:8080/realms/episodate',

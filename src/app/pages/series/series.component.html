@@ -1,0 +1,30 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search a serie</mat-label>
+    <input type="text" matInput formControlName="serieName" placeholder="Ahsoka" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let serie of series$ | async" [value]="serie.name">
+        {{serie.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Season</mat-label>
+    <input matInput type="number" min="0" max="50" formControlName="season" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Episode</mat-label>
+    <input matInput type="number" min="0" max="10000" formControlName="episode" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!searchForm.valid">
+    <mat-icon>search</mat-icon>
+    Search
+  </button>
+</form>
+
+<div *ngFor="let linksData of serieLinkData$ | async">
+  <a [href]="linksData.url" target="_blank">{{linksData.url}}</a>
+</div>

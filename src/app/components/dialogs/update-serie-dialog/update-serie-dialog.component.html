@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Update serie #{{serie?.id}} - {{serie?.name}}</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="updateSerieForm">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Serie name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!updateSerieForm.valid"><mat-icon>edit</mat-icon> Update</button>
+  </div>
+</form>

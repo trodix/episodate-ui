@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Delete serie #{{data.id}} - {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Do you really want to delete the serie #{{data.id}} - {{data.name}} and it's {{data.linkPatterns.length}} related links?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>No, cancel</button>
+  <button mat-raised-button color="warn" type="button" (click)="delete()"><mat-icon>delete</mat-icon> Yes, delete {{data.name}}</button>
+</div>

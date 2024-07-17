@@ -1,5 +1,9 @@
-<h2>Dashboard</h2>
-<h3>{{serie?.name}}</h3>
+
+<div>
+  <h2>Dashboard - {{serie?.name}}</h2>
+  <button mat-raised-button color="primary" (click)="updateSerie()"><mat-icon>edit</mat-icon> Update</button>
+  <button mat-raised-button color="warn" (click)="deleteSerie()"><mat-icon>delete</mat-icon> Delete</button>
+</div>
 <ul *ngIf="serie?.linkPatterns?.length! > 0 ;else no_links">
   <li *ngFor="let link of serie?.linkPatterns">{{link.urlPattern}}</li>
 </ul>

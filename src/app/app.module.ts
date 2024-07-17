@@ -17,6 +17,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SerieDashboardAdminComponent } from './pages/admin/serie-dashboard-admin/serie-dashboard-admin.component';
 import { AddSerieDialogComponent } from './components/dialogs/add-serie-dialog/add-serie-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { UpdateSerieDialogComponent } from './components/dialogs/update-serie-dialog/update-serie-dialog.component';
+import { ConfirmDeleteSerieDialogComponent } from './components/dialogs/confirm-delete-serie-dialog/confirm-delete-serie-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     SeriesAdminComponent,
     HeaderComponent,
     SerieDashboardAdminComponent,
-    AddSerieDialogComponent
+    AddSerieDialogComponent,
+    UpdateSerieDialogComponent,
+    ConfirmDeleteSerieDialogComponent
   ],
     imports: [
         BrowserModule,

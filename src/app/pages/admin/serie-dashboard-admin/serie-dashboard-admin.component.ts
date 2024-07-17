@@ -1,8 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ActivatedRouteSnapshot, Route, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {SeriesService} from "../../../service/series.service";
 import {Serie} from "../../../models/serie";
-import {Observable} from "rxjs";
+import {
+  UpdateSerieDialogComponent
+} from "../../../components/dialogs/update-serie-dialog/update-serie-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {
+  ConfirmDeleteSerieDialogComponent
+} from "../../../components/dialogs/confirm-delete-serie-dialog/confirm-delete-serie-dialog.component";
 
 @Component({
   selector: 'app-serie-dashboard-admin',
@@ -15,15 +21,53 @@ export class SerieDashboardAdminComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly seriesService: SeriesService
+    private readonly router: Router,
+    private readonly seriesService: SeriesService,
+    private readonly dialog: MatDialog
   ) {
   }
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  init() {
     const serieId = this.route.snapshot.params['id'];
     this.seriesService.getById(serieId).subscribe(serie => {
       this.serie = serie;
     });
+  }
+
+  openUpdateSerieDialog() {
+    const dialogRef = this.dialog.open(UpdateSerieDialogComponent, {
+      height: '400px',
+      width: '600px',
+      data: this.serie
+    });
+
+    dialogRef.afterClosed().subscribe(_ => {
+      this.init();
+    })
+  }
+
+  openConfirmDeleteSerieDialog() {
+    const dialogRef = this.dialog.open(ConfirmDeleteSerieDialogComponent, {
+      height: '400px',
+      width: '600px',
+      data: this.serie
+    });
+
+    dialogRef.afterClosed().subscribe(_ => {
+      this.router.navigateByUrl("/admin/series");
+    })
+  }
+
+  updateSerie() {
+    this.openUpdateSerieDialog();
+  }
+
+  deleteSerie() {
+    this.openConfirmDeleteSerieDialog();
   }
 
 }

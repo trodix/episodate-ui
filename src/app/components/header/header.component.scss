@@ -24,7 +24,14 @@
       justify-content: start;
     }
     &.right {
+      flex-direction: row;
       justify-content: end;
+      .username {
+        color: white;
+        margin: 0 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
     }
   }
 }

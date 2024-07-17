@@ -19,6 +19,7 @@ import { AddSerieDialogComponent } from './components/dialogs/add-serie-dialog/a
 import {MatDialogModule} from "@angular/material/dialog";
 import { UpdateSerieDialogComponent } from './components/dialogs/update-serie-dialog/update-serie-dialog.component';
 import { ConfirmDeleteSerieDialogComponent } from './components/dialogs/confirm-delete-serie-dialog/confirm-delete-serie-dialog.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ConfirmDeleteSerieDialogComponent } from './components/dialogs/confirm-
         MatIconModule,
         FormsModule,
         MatDialogModule,
+        MatMenuModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

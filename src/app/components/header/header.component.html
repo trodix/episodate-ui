@@ -4,8 +4,15 @@
       <h1>Episodate Plug</h1>
     </a>
   </div>
-  <div class="center"></div>
+  <div class="center">
+
+  </div>
   <div class="right">
-    <a routerLink="admin/series">Admin</a>
+    <span class="username" [matMenuTriggerFor]="userMenu">{{username}}</span>
+    <mat-menu #userMenu="matMenu">
+      <a mat-menu-item routerLink="admin/series">Admin dashboard</a>
+    </mat-menu>
+
+    <button mat-raised-button (click)="logout()">Logout</button>
   </div>
 </div>

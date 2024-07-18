@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Add a link pattern to serie #{{serie?.id}} - {{serie?.name}}</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="addLinkPatternForm">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Url pattern</mat-label>
+      <input matInput formControlName="urlPattern">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!addLinkPatternForm.valid"><mat-icon>add</mat-icon> Add</button>
+  </div>
+</form>

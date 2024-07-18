@@ -9,6 +9,9 @@ import {MatDialog} from "@angular/material/dialog";
 import {
   ConfirmDeleteSerieDialogComponent
 } from "../../../components/dialogs/confirm-delete-serie-dialog/confirm-delete-serie-dialog.component";
+import {
+  AddLinkPatternDialogComponent
+} from "../../../components/dialogs/add-link-pattern-dialog/add-link-pattern-dialog.component";
 
 @Component({
   selector: 'app-serie-dashboard-admin',
@@ -47,7 +50,7 @@ export class SerieDashboardAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(_ => {
       this.init();
-    })
+    });
   }
 
   openConfirmDeleteSerieDialog() {
@@ -59,7 +62,19 @@ export class SerieDashboardAdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(_ => {
       this.router.navigateByUrl("/admin/series");
-    })
+    });
+  }
+
+  openAddLinkPatternDialog() {
+    const dialogRef = this.dialog.open(AddLinkPatternDialogComponent, {
+      height: '400px',
+      width: '600px',
+      data: this.serie
+    });
+
+    dialogRef.afterClosed().subscribe(_ => {
+      this.init();
+    });
   }
 
   updateSerie() {

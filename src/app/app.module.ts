@@ -20,6 +20,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { UpdateSerieDialogComponent } from './components/dialogs/update-serie-dialog/update-serie-dialog.component';
 import { ConfirmDeleteSerieDialogComponent } from './components/dialogs/confirm-delete-serie-dialog/confirm-delete-serie-dialog.component';
 import {MatMenuModule} from "@angular/material/menu";
+import { AddLinkPatternDialogComponent } from './components/dialogs/add-link-pattern-dialog/add-link-pattern-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatMenuModule} from "@angular/material/menu";
     SerieDashboardAdminComponent,
     AddSerieDialogComponent,
     UpdateSerieDialogComponent,
-    ConfirmDeleteSerieDialogComponent
+    ConfirmDeleteSerieDialogComponent,
+    AddLinkPatternDialogComponent
   ],
     imports: [
         BrowserModule,

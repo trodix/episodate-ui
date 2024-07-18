@@ -1,12 +1,16 @@
 
-<div>
+<div class="title">
   <h2>Dashboard - {{serie?.name}}</h2>
-  <button mat-raised-button color="primary" (click)="updateSerie()"><mat-icon>edit</mat-icon> Update</button>
-  <button mat-raised-button color="warn" (click)="deleteSerie()"><mat-icon>delete</mat-icon> Delete</button>
+  <button mat-raised-button color="primary" (click)="updateSerie()"><mat-icon>edit</mat-icon></button>
+  <button mat-raised-button color="warn" (click)="deleteSerie()"><mat-icon>delete</mat-icon></button>
 </div>
-<ul *ngIf="serie?.linkPatterns?.length! > 0 ;else no_links">
-  <li *ngFor="let link of serie?.linkPatterns">{{link.urlPattern}}</li>
-</ul>
-<ng-template #no_links>
-  <p>No link patterns for this item</p>
-</ng-template>
+<div class="links">
+  <button mat-raised-button color="primary" (click)="openAddLinkPatternDialog()"><mat-icon>link</mat-icon>Add link</button>
+
+  <ul *ngIf="serie?.linkPatterns?.length! > 0 ;else no_links">
+    <li *ngFor="let link of serie?.linkPatterns">{{link.urlPattern}}</li>
+  </ul>
+  <ng-template #no_links>
+    <p>No link patterns for this item</p>
+  </ng-template>
+</div>

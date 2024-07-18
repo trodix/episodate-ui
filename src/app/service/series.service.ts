@@ -6,6 +6,8 @@ import {SerieLinkData} from "../models/serie-link-data";
 import {Serie} from "../models/serie";
 import {CreateSerie} from "../models/create-serie";
 import {UpdateSerie} from "../models/update-serie";
+import {CreateLinkPattern} from "../models/create-link-pattern";
+import {Link} from "../models/link";
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +38,10 @@ export class SeriesService {
 
   deleteSerie(serieId: number): Observable<void> {
     return this.httpClient.delete<void>(`${environment.BACKEND_BASE_URL}/admin/series/${serieId}`);
+  }
+
+  createLinkPattern(createLink: CreateLinkPattern) {
+    return this.httpClient.post<Link>(`${environment.BACKEND_BASE_URL}/admin/links`, createLink);
   }
 
 }

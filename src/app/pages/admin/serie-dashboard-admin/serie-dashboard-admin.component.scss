@@ -1,0 +1,14 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h2 {
+    margin-right: 8px;
+  }
+  button {
+    margin: 0 4px;
+    mat-icon {
+      margin: 0;
+    }
+  }
+}

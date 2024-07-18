@@ -8,11 +8,13 @@
 
   </div>
   <div class="right">
-    <span class="username" [matMenuTriggerFor]="userMenu">{{username}}</span>
+    <div class="username">
+      <span class="icon"><mat-icon>person</mat-icon></span>
+      <span [matMenuTriggerFor]="userMenu">{{username}}</span>
+    </div>
     <mat-menu #userMenu="matMenu">
-      <a mat-menu-item routerLink="admin/series">Admin dashboard</a>
+      <a mat-menu-item routerLink="admin/series"><mat-icon>settings</mat-icon> Admin dashboard</a>
+      <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Logout</button>
     </mat-menu>
-
-    <button mat-raised-button (click)="logout()">Logout</button>
   </div>
 </div>

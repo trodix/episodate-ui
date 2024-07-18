@@ -1,4 +1,4 @@
 export interface Link {
-  id?: number;
+  id: number;
   urlPattern: string;
 }

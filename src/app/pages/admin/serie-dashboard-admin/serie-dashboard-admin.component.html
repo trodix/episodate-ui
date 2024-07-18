@@ -7,10 +7,18 @@
 <div class="links">
   <button mat-raised-button color="primary" (click)="openAddLinkPatternDialog()"><mat-icon>link</mat-icon>Add link</button>
 
-  <ul *ngIf="serie?.linkPatterns?.length! > 0 ;else no_links">
-    <li *ngFor="let link of serie?.linkPatterns">{{link.urlPattern}}</li>
-  </ul>
-  <ng-template #no_links>
-    <p>No link patterns for this item</p>
-  </ng-template>
+  <div class="list">
+    <div *ngIf="serie?.linkPatterns?.length! > 0 ;else no_links">
+      <div class="link-wrapper" *ngFor="let link of serie?.linkPatterns">
+        <span class="link">{{link.urlPattern}}</span>
+        <div class="actions">
+          <button mat-raised-button color="warn" (click)="openConfirmDeleteLinkPatternDialog(link)"><mat-icon>delete</mat-icon></button>
+        </div>
+      </div>
+    </div>
+    <ng-template #no_links>
+      <p>No link patterns for this item</p>
+    </ng-template>
+  </div>
+
 </div>

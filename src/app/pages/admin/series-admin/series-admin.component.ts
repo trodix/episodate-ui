@@ -28,10 +28,7 @@ export class SeriesAdminComponent implements OnInit {
   }
 
   openAddSerieDialog() {
-    const dialogRef = this.dialog.open(AddSerieDialogComponent, {
-      height: '400px',
-      width: '600px',
-    });
+    const dialogRef = this.dialog.open(AddSerieDialogComponent, {});
 
     dialogRef.afterClosed().subscribe(_ => {
       this.loadSeries();

@@ -44,4 +44,8 @@ export class SeriesService {
     return this.httpClient.post<Link>(`${environment.BACKEND_BASE_URL}/admin/links`, createLink);
   }
 
+  deleteLinkPattern(linkId: number) {
+    return this.httpClient.delete<Link>(`${environment.BACKEND_BASE_URL}/admin/links/${linkId}`);
+  }
+
 }

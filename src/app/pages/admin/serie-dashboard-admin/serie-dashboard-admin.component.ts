@@ -12,6 +12,10 @@ import {
 import {
   AddLinkPatternDialogComponent
 } from "../../../components/dialogs/add-link-pattern-dialog/add-link-pattern-dialog.component";
+import {
+  ConfirmDeleteLinkPatternDialogComponent
+} from "../../../components/dialogs/confirm-delete-link-pattern-dialog/confirm-delete-link-pattern-dialog.component";
+import {Link} from "../../../models/link";
 
 @Component({
   selector: 'app-serie-dashboard-admin',
@@ -43,8 +47,6 @@ export class SerieDashboardAdminComponent implements OnInit {
 
   openUpdateSerieDialog() {
     const dialogRef = this.dialog.open(UpdateSerieDialogComponent, {
-      height: '400px',
-      width: '600px',
       data: this.serie
     });
 
@@ -55,8 +57,6 @@ export class SerieDashboardAdminComponent implements OnInit {
 
   openConfirmDeleteSerieDialog() {
     const dialogRef = this.dialog.open(ConfirmDeleteSerieDialogComponent, {
-      height: '400px',
-      width: '600px',
       data: this.serie
     });
 
@@ -67,9 +67,20 @@ export class SerieDashboardAdminComponent implements OnInit {
 
   openAddLinkPatternDialog() {
     const dialogRef = this.dialog.open(AddLinkPatternDialogComponent, {
-      height: '400px',
-      width: '600px',
       data: this.serie
+    });
+
+    dialogRef.afterClosed().subscribe(_ => {
+      this.init();
+    });
+  }
+
+  openConfirmDeleteLinkPatternDialog(selectedLink: Link) {
+    const dialogRef = this.dialog.open(ConfirmDeleteLinkPatternDialogComponent, {
+      data: {
+        serie: this.serie,
+        linkPattern: selectedLink
+      }
     });
 
     dialogRef.afterClosed().subscribe(_ => {
